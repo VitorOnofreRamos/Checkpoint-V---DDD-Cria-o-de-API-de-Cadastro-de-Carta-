@@ -4,6 +4,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.fiap.com.br.entities.PokemonCard;
+import org.fiap.com.br.repositories.PokemonCardRepository;
 import org.fiap.com.br.services.PokemonCardServices;
 import org.fiap.com.br.utils.Log4jLogger;
 
@@ -13,9 +14,11 @@ import java.util.List;
 public class PokemonCardResource {
     private final Log4jLogger<PokemonCard> logger = new Log4jLogger<>(PokemonCard.class);
     private final PokemonCardServices cardServices;
+    private final PokemonCardRepository cardRepository;
 
-    public PokemonCardResource(PokemonCardServices cardServices) {
-        this.cardServices = cardServices;
+    public PokemonCardResource() {
+        this.cardRepository = new PokemonCardRepository();
+        this.cardServices = new PokemonCardServices(cardRepository);
     }
 
     @GET

@@ -27,7 +27,7 @@ public class Main {
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
         // in org.fiap.com.br package
-        final ResourceConfig rc = new ResourceConfig().packages("org.fiap.com.br");
+        final ResourceConfig rc = new ResourceConfig().packages("org.fiap.com.br.resources");
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI
