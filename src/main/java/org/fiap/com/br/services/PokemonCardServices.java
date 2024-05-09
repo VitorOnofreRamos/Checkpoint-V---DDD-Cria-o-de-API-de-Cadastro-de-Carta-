@@ -15,12 +15,12 @@ public class PokemonCardServices {
     }
 
     public void create(PokemonCard card) {
-        Map<Boolean, ArrayList<String>> validationResult = card.validate();
+        /*Map<Boolean, ArrayList<String>> validationResult = card.validate();
         if (!validationResult.get(true).isEmpty()) {
             // Tratar erros de validação aqui
             System.out.println("Erros de validação: " + validationResult.get(false));
             return;
-        }
+        }*/
         cardRepository.create(card);
     }
 
@@ -33,12 +33,12 @@ public class PokemonCardServices {
     }
 
     public boolean update(int id, PokemonCard card) {
-        Map<Boolean, ArrayList<String>> validationResult = card.validate();
+        /*Map<Boolean, ArrayList<String>> validationResult = card.validate();
         if (!validationResult.get(true).isEmpty()) {
             // Tratar erros de validação aqui
             System.out.println("Erros de validação: " + validationResult.get(false));
             return false;
-        }
+        }*/
         return cardRepository.update(id, card);
     }
 
